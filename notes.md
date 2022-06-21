@@ -61,7 +61,7 @@ Communications <-> native apps <-> marketing site <-> product 1 <-> product 2
     - Tier 2: Theme
   - Tier 3: Component (Design system component library)
   - Component library stays stable
-- Figma 
+- If you are not using Figma for creating design systems, you should be. 
 - Theemo - Style Automator, figma does not have this built in; this allows you to create semantic values for things like color
 - Themer; allows you to switch between those token sets
 - github.com/salesforce-ux/theo
@@ -136,5 +136,223 @@ Communications <-> native apps <-> marketing site <-> product 1 <-> product 2
 -  AA & AAA
    -  AA is a good standard to aim for; AAA implies greater customizations for specific groups of users with disabilities, and may make your product more accessible for that group at the expense of another group's experience
 -  Accessibility improvements to your product affect not just users with disabilities but can improve the broader user experience; example: Netflix subtitles
+### Coffee Break 
+[books](https://www.smashingmagazine.com/printed-books/)
+[slack channel](https://smashed.by/slack)
+
+### Robin Marx - Married to HTTP/3
+@programmingart
+- The long road to HTTP3
+  - 2012 Google starts on QUIC
+  - 2017 IETF adopts QUIC and HTTP-over-QUIC
+  - 2018 Name "HTTP3" chosen
+- What is HTTP/3?
+- HTTP/3: 
+  - head of line blocking removal
+  - connection igration
+  - better packet loss handling
+  - tunable congestion control
+  - better stream prioritization
+  - built on UDP
+- UDP does not require handshake
+- QUIC integrates with TLS to allow both handshakes in one round trip 
+- Zero RTT; do everything in first round trip 
+- HTTP/3 fiddly
+  - version negotiation
+  - amplification prevention
+  - large cert
+  - retry
+  - address validation failure
+  - expired resumption ticket
+  - non-idempotent request
+- How to adapt your pages to H3?
+  - very similar to H2, bit more relaxed
+  - Fewer domains
+    - consolidate on 1-3 connections in critical path
+  - Less bundling
+    - 10-40 files should be fine (inlining css still good tho)
+  - Help browser
+    - async/defer JS
+    - preload/preconnect/priority hints/lazy loading
+  - No server push 
+  - **Easy way:**: use a CDN
+    - Client & edge server connection uses H3, edge & origin still uses H2
+    - Google CDN uses H3
+    - Very easy to flip H3 switch
+  - **Hard way**: doing H3 yourself
+
+- The RSVP problem
+  - If you send someone an invite to wedding, you want the guest to confirm so you can order food for them. 
+  - H3 might
+    - be blocked on network
+    - not be enabled on server
+  - browsers will only try H3 if supported
+- Connecting to New domains (the alt-svc problem)
+  - browser sends initial request over H1 or H2
+  - server sends back alternative services header
+  - browser stores alt-svc info in alt-svc cache
+  - browser also tries H3 from now on, in parallel with H1 and 2 ("free" fallback)
+- *Where did that present come from?* - identifying where the problems are
+- Checking if HTTP 3 supported
+  - httpcheck.net
+  - docker image: ymuski/curl-http3
+- Compare H2 to H3 performance
+  - Google Lighthouse is excellent tool but not for network protocol testing
+  - WebPageTest has built-in network throttling suite
+    - Repeat View option: give alt-svc time to kick in
+      - Both Chrome and Firefox switch to H3 *during* the first page load, not after
+      - Both Chrome and Firefox still start with H2 in the repeat view
+  - Chromium browser, customize command line options to force HTTP2 or HTTP3 and skip the alt svc flow, allows for apples to apples comparison
+  - Low level data is available, just needs to be surfaced to higher level tools & views
+  - Protocol performance is not low hanging fruit
+    - Switching to H3 won't produce a drastic performance improvement for all users, will primarily improve performance for slowest 1-10% of your users
+  - Time to first byte 
+    - need to include DNS lookup times 
+    - H2 used for very first page load, so very likely to incur a DNS lookup
+    - H3 comes after, likely to have DNS data cached
+    - Not a very fair comparison
+    - Better: "Honest TTFB" excluding DNS request RTT 
+- Summary
+  - know what the feature does before using it
+  - use a CDN
+  - know the limitations of your tools; trust but verify 
+  - hypothesize first, confirm with data
+- eipiq21.github.com
+- tech.loveholidays.com/making-loveholidays-18-faster-with-http3-1860879528a7
+- Big reason to switch to new protocols is that they will evolve very quickly
+  - Multipath
+  - Web transport 
+
+### Shubhie Panicker @shubie
+#### Demystifying Leadership in the tech career journey 
+- Tech Career Journey discussion
+- Managing increasing scope & complexity of system(s) you are responsible for. 
+- Complexity of a system defined by:
+  - components of system
+  - dependencies
+  - needs of different stakeholders
+  - failure modes of system and its integrations
+- becoming senior
+  - develop expertise in system
+  - understanding dependent systems & vulnerabilities
+  - manage needs of stakeholders
+  - build solutions & robust integrations
+- your work may be exemplary but if it's narrowly scoped you may not be considered for leadership 
+- complexity beyond senior **increases dramatically**
+  - complexity of system components
+  - complexity of dependencies
+  - needs of different stakeholders
+  - learning to work with people becomes very helpful at this stage
+- **Systems thinking**: a way of exploring and developing effective action by looking at connected wholes rather than separate parts
+  - Step back and consider whole system and interactions between parts
+  - Reflect, get additional perspectives
+  - Identify behavior changes to try; might be a new process for the team(s), will take time to determine if it works well
+- Managing systems of increasing complexity summary
+  - Not-yet senior
+    - component that is part of larger system
+    - provide technical solution to given problem defined for you
+  - senior
+  - beyond-senior
+    - systems-thinking. significantly more complex, responsible for components and their connectedness. 
+- Discomfort fuels growth
+- Who are you trusted by?
+  - Follow leaders wisely.
+  - Do they believe in me?
+  - Can they support my growth?
+  - Do I believe in them?
+  - Aree they growing in scope or influence? 
+- Function areas & Skills
+  - Tech
+    - core technical skills; e.g. engineering, UX, etc.
+  - Project management
+    - steer execution, coordinate teams, manage timelines and budgets
+  - Product management
+    - define product with market understanding, shape strategy
+  - People management
+    - manage technical people, promote productivity, grow careers
+- Rare to find a team / organization that is equally strong in all functional areas
+- Where are your interests/skills as they relate to those 4 areas?
+- Grit: The Power of Passion and Perseverance (Book by Angela Duckworth)
+- 2 challenges to resilience. Resilience is ultimately what keeps you in the game & dealing with burnout, and **staying in the game is critical to your tech journey. **
+  - fear
+  - fatigue. need to recharge!
+- Writing down your goals helps you to build resilience. 
+- Don't get too comfortable. Your goals & your scope of work should be stretching you. Discomfort fuels growth. 
+- Be honest with yourself. Where am I with these things and where do I want to go? 
+- Should managers in the tech arena have deep technical skills?
+  - Need to be able to intelligently speak to the tech. But more important to have tech leads that you trust with whom you can hash out technical issues even if you don't have the deep technical skills. 
+- How long does it usually take to become proficient/feel comfortable in a new role?
+  - You should always be a little uncomfortable. 90 days to 6 months to start feeling confident. 
+- Can you grow in your career/climb the tech ladder without having to manage people?
+  - Certain companies actually require you to manage people as you get promoted. 
+- How quickly do you think it's okay to expect a promotion in tech? 1.5 years-2.5 years is common at Google if you're not a senior yet. Once you're a senior, 2.5-3.5 years generally to get promoted at Google.
+
+
+### Miriam Suzanne: [Codepen](https://codepen.io/miriamsuzanne) - OddBird - @terriblemia
+#### Styling the Intrinsic Web
+Member of CSS working group, W3C 
+- CSS exists for two primary reasons
+  - CSS describes reusable objects
+  - CSS describes responsive styles
+- On every HTMl element, every CSS property must have exactly one value
+- Web for all. Web on everything. - web mission statement
+- Everyone has input. User agents, devices, authors.
+- There are too many variables to consider when designing for the web. The point of CSS is to make it so you don't have to worry about all of them. 
+- Our job when writing CSS is to define a few constraints and let the language figure out the rest because it's smarter than us. 
+- Cascade filters out. Inheritance fills in. 
+- Cascade Origins
+  - user agent (browser)
+  - user (preferences)
+  - author (site)
+- If conflicts arise the user should have the last word
+- !important is a balance of power between origins ; it's there to protect styles from someone coming along later and taking away something that's important. Not there for us to override stuff 
+- Selectors
+  - \* (universal)
+  - type
+  - .class & \[attr]
+  - \#IDs
+##### Cascade Layers
+- give you control over your part of the cascade
+- creating layers of specificity; you can do this with the @layer rule
+- can create as many layers as you want & put styles in each one 
+- layers take precedence over specificity
+- can establish layer order up front to establish precedence;
+  - @layer generic, elements, objects, components, overrides;
+- unlayered styles have the highest priority by default
+- long term we're moving toward putting every style in a layer because it's clearer
+  - you can nest layers
+    - can use dot notation to access nested layers
+  - layers override, importance protects
+  - Example 
+    - @layer base, theme, state;
+    - want state styles to override theme styles; want theme styles to override base styles
+##### Scoped Styles
+- different from shadow-dom encapsulation
+  - shadow-dom encapsulation is more of a hard boundary, nothing can get through
+- scoped styles is more of a soft boundary; global styles can still come through/be inherited
+- @scope
+##### Container Queries
+- problem: layout loops because of normal flow
+  - content sizes parent and parent sizes content
+- 2020 proposals:
+  - david baron: @container
+- components need to lay out the children & not be laid out by their children
+- can't ignore the content entirely though
+- we need inline size containment
+- dino's paradox; in order to get somewhere, you have to go halfway then halfway then halfway then halfway, but in that case you wont ever get there
+- container-type: inline-size;
+- contain: inline-size
+- can nest containers as much as you want;
+- Finding Containers
+  - match every element and find nearest ancestor that has the right container type 
+  - Later this year and into next year all major browsers will support container queries
+  - Container query units
+    - cqw | cqh | cqi |cqb | cqmin | cqmax
+  - @container style(--colors: invert) {...} 
+  - @container state(is-stuck) {...} 
+
+### Elliot Jay Stocks
+#### Typography for the People 
+
 ## Conference Day 2
 smashed.by/roll
