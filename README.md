@@ -351,8 +351,61 @@ Member of CSS working group, W3C
   - @container style(--colors: invert) {...} 
   - @container state(is-stuck) {...} 
 
-### Elliot Jay Stocks
+### Elliot Jay Stocks @elliotjaystocks
 #### Typography for the People 
+- Magazines
+- [8 Faces](https://8faces.com)
+  - 8 issues; interview 8 designers, ask for 8 favorite typefaces
+- [Lagom](https://readlagom.com); 10 issues; lifestyle magazine
+- [King Sejong, Korea](https://en.wikipedia.org/wiki/Sejong_the_Great)
+- Invented writing system (hangle writing system for Korean language); shapes & letter forms give hints about how to pronounce words
+- [Sexy Web Design](https://elliotjaystocks.com/blog/sexy-web-design)
+- Did redesign for smashing website
+- [Insites: The Book](https://www.goodreads.com/book/show/16031919-insites)
+- ClearSans
+- [Maido](https://medium.com/@elliotjaystocks/behind-the-scenes-of-maidos-rebranding-7359bec4c763)
+- [Google Fonts Knowledge](https://fonts.google.com/knowledge)
+- [Components.ui](https://componentsui.com)
+We often judge success based on impression-based metrics, but we should be focused on expression-based metrics. What do people actually care about?
+
+### Cassie Evans
+#### Animating the Impossible
+- Magic card trick introduction
+- Animating some really tricky UI stuff involving responsive layouts
+- [GreenSock](https://greensock.com/)
+- [codepen.io/cassie-codes](https://codepen.io/cassie-codes)
+- [gsap](https://greensock.com/gsap/)
+- the world that HTML elements live in is infinite and unknowable; the world of SVGs is predictable
+- UI animation can be integral to understanding an interface for people
+- vision
+  - rods in peripheral vision, more sensitive to movement, "hey! over here"
+  - cones in central vision
+  - more neurons analyze stuff in the central vision rather than peripheral vision
+  - we see a lot less than we think -> inattentional blindness. magicians take advantage of this
+  - change blindness -> failure to notice an obvious change; UCI study re: spotting the difference
+  - refreshing the page means users have to reorient themselves; better to have smooth page transitions without interrupting the interface
+- after all your styles and JS is loaded, browser goes through 3 steps
+  - layout -> paint -> composite
+  - this is very fast/efficient, but if you animate elements of layout or paint steps (e.g. left, right, width, background color), not as efficient/fast
+- you need to make it appear to user that element has not moved even if you've moved element to entirely new place and put it back again with FLIP. Avoid layout reflows.
+- On parent: FLIP
+  - First
+  - Last
+  - Invert 
+  - Play
+- On children: FLOP
+  - First 
+  - last 
+  - offset 
+  - parent
+- in Layout stage
+  - first el.getBoundingClientRect()
+  - then move element to new position
+  - then calculate how far element has moved
+- before Paint step, move element where it needs to be 
+- use motion to signal change
+- SVGs are a great way to get started with animation
+
 
 ## Conference Day 2
 smashed.by/roll
