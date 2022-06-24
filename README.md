@@ -408,4 +408,149 @@ We often judge success based on impression-based metrics, but we should be focus
 
 
 ## Conference Day 2
-smashed.by/roll
+[smashed.by/roll](https://smashed.by/roll)
+### Mystery Speaker: Addy Osmani @addyosmani
+#### Life Lessons & Introspection
+* First do it, then do it right, then do it better. Don't get lost in perfectionism. Ship when it's good enough. 
+* Time is your greatest asset. Use it wisely. Technical mastery implies a high ratio of value shipped to hours worked. Work on the right things. 
+* Understand what gives you energy & what takes it away. It
+
+##### Nostalgia
+##### Introspection
+- 5-prompt framework for introspection
+  - What do I want?
+  - What am I avoiding?
+  - What am I grateful for? 
+  - What am I afraid of? 
+  - What are my strengths/faults?
+
+### Harry Roberts @csswizardry
+#### Get Your Head Straight
+- cardiocentric theory
+- key concepts
+  - HTML parsed line by line
+  - the `<head>` is the biggest single render-blociking part of your page
+- [csswz.it/gyhs-baseline](https://csswz.it/gyhs-baseline)
+- don't be big-headed; if it doesn't need to be in the head, remove it. has a major performance ipmact 
+- self-host whatever you can; [csswz.it/self-host](https://csswz.it/self-host)
+- pro tip for self-employed devs: never tell clients what you did, but the outcome of what you did 
+- Move CSP data
+- Metadata about the page goest first
+  - tell the browser how to deal with the page, e.g. viewport
+- Put your synchronous JS before CSS 
+  - CSS blocks execution of subsequent JS
+- avoid @import in CSS files, bad for performance; removing it allows for more complete parallelization
+- SEO and Social Goes last. It's asynchronous so really it doesn't matter where it goes. If Google Bot can't find your meta tags, it can't find your body either. 
+- A New Order: [csswz.it/gyhs-fixed](https://csswz.it/gyhs-fixed)
+- [csswizardry.com/ct](https://csswizardry.com/ct) - tool for assessing head tags
+- [csswz.it/smashingdevtools](https://csswz.it/smashingdevtools)
+- [harry.is/for-hire](https://harry.is/for-hire)
+- favor HTML whenever you can rather than depending on JS to populate the DOM
+
+
+### Vitaly Friedman
+#### Designing for Complex UIs
+- working in complex environments may involve dealing with visualizing tons of data in different ways
+  - filtering, view changes, different perspectives
+  - ability to create understanding out of data is something that we are often missing
+- Some digital products are inherently complex bec of deeply intricate environemnts in which they operate. They are designed for expert users operating in a knowledge domain. 
+- Complex interfaces are composed of a core set of reusable components, e.g. multi-level navs, cards, dashboards charts, timelines, data views, maps, auth, privacy, etc.
+- Design KPIs; rare?
+  - With DKPIs, the design is always driven by constraints and user-centric goals. The outcome is evidence-based design. Without subjective or random decisions. 
+- How to test?
+  - Task instructions. Give people tasks to execute within your design. Goal is to get 80-90% success for all of the tasks. 40-50 people. 
+- To get to high success rates, as we iterate, test exactly the same 15 top task instructions with eact same segments of audience over time at least every 4-6 months. 
+##### Navigation
+- dealing with copmlex menus
+  - mega-sites usually extremely large, many levels deep, made of many micro-websites, etc. mega menus are disgusting. 
+  - Hover tunnels. 
+- Amazon triangle path.
+- Avoid hover menus! Better to have click menus. Works as expected on mobile as well. 
+- Sideways breadcrumbs. Often problematic & implemented incorrectly. 
+
+Filters.  Dell's filters are rough. Drive users through options in predictable way, don't show all options at once. Decouple the results from the filters. Don't slow down your users when they don't want to be slowed down. 
+
+Carousels. How do we make them better? 
+Make sure you have a bright, clear mapping between the indicator and what is supposed to happen. Like, don't show a slider bar if you have to swipe across the screen to trigger something. 
+
+Infinite Scroll. Lots of issues, no sense of current state. Maybe use a "continue here later" button, that links to the section of the infinite scroll. 
+
+[Smart Interface Design Patterns](https://smart-interface-design-patterns.com/)
+
+### Sophie Tahran @stahran
+#### Designing with Words
+- UX writing lead; Conde Nast
+- New Yorker, invision, lyft
+- taqueria cancun - SF food recommendation
+- What UX writing is
+  - content design
+  - practice of designing useful content that guides users through digital experiences
+  - product design through a written rather than visual lens
+  - work primarily in figma
+  - product design, figma, designs
+  - repetition is good; in UX writing, a different word signifies a different action
+  - never sacrifice clarity for sake of concision
+- Why it matters
+  - we're moving into a world where every piece of content needs to be created strategically
+  - leads to 
+    - better products
+    - better UX
+    - better brands (build trust, loyalty, credibility)
+- Creating your process
+  - generative research
+  - support tickets
+  - competitors
+  - Reference other people's language to guide your own language
+- Applying best practices
+  - use & ! ; - sparingly 
+  - avoid arbitrary capitalization
+
+### Dan Rubin
+#### We Don't Talk Anymore
+##### Teamwork
+We're still debating whether designers should learn to code. 
+
+"Our modern family gathering, silent around the fire, each individual with his head buried in his favorite magazine." Journal of Education
+
+Our tendency toward isolation is a pattern, not new. 
+We're really good with building walls.
+
+We long for human connection yet close ourselves off from direct interaction. 
+
+Brene Brown, The power of vulnerability: "Connection is why we're here."
+Why do we separate & define ourselves & others?
+
+Roles help us create a mental model of the world. We start defining our differences early.
+
+The language of separation is embedded in our world. E.g. male & female idea embedded everywhere, people, plugs. Schools separate us by age, subject, etc.
+We define behavior as "child-like"/"grown-up".
+
+Defining roles allows us to assign responsibility.
+
+Roles important for teamwork. Yet we tend to allow roles to separate us rather than pull us together.
+
+Montessori encourages collaborative play across age groups.
+##### Think small(er).
+Small startups tend to behave this way.
+
+Smaller teams tend to come with more active involvement by the members. Less focus on isolation & separated roles. More focus on common goal.
+
+As teams grow, segmentation becomes more common, communication becomes more difficult, relationships change. 
+
+GoreTex example. - when a department grew over 150 or so people ([the dunbar number](https://en.wikipedia.org/wiki/Dunbar%27s_number)), department got divided. Problems with communication & relationships resolved by creating smaller groups. Dunbar number not absolute, but helps us to think smaller.  
+
+[Big Spaceship Agency in Brooklyn, NY.](https://www.bigspaceship.com/). Big Spaceship Manual: *"Try not to over-formalize communication. There's no need to send an email to the person sitting one desk (or Slack message) away."*
+
+Often the systems / processes we implement to scale up end up getting in the way of productivity and human-ness. E.g. using email for documented communication at the expense of quick in-person communication. 
+
+Consider how your approach to defining roles might be affecting your team's ability to achieve their goals.
+
+Inherent value studies: focusing on features of a product when you're working on improving for a future version; focuses on things that are working well that you want to protect. This same thing should be applied to scaling up team sizes. What's working well with the small team? Protect that. 
+
+How do you reorganize communication to avoid flooded chatty channels particularly in a remote work environment?
+  - Comes down to setting boundaries. 
+
+
+### Jhey Tompkins - DevRel Engineer @ Google
+#### Take your skills to the moon with creative coding
+This was primarily a demo of many codepen projects. 
