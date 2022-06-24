@@ -344,4 +344,37 @@ People often think things are set in stone once design system is launched, but i
 
 [Vanilla Pattern](https://coggle.it/diagram/V0hkiP976OIbGpy8/t/vanilla-pattern)
 
+[Design System Governance Process article](https://bradfrost.com/blog/post/a-design-system-governance-process/)
 
+##### Versioning
+v0.1.0
+vMajor.Minor.Patch
+patch - contains bug fixes, typically added urgently since you don't want bugs in production
+minor - new components generally
+major - breaking changes - something demands your attention; if you pull down this version it will not work unless you change something
+
+A 1.0.0 designation comes with committment. Freewheeling days of unstable early foundations are behind you. What you're saying with this version is "this works". Be serious about it, comes with gravity. 
+
+Versioning & Breaking Changes
+[designsystem.morningstar.com]
+
+##### COMMUNICATION MATTERS
+- keep a changelog; what's new
+- wire pull requests to social / teams / community channels
+- **Training opportunities**
+  - onboarding
+  - pair sessions, it's VERY important to consider design system a service, here to help, so meet with people about apprehensions, get them addressed
+  - workshops
+  - webinars
+  - requests for feedback
+
+
+Resources
+clarity conference
+[design.systems](https://design.systems)
+[design-systems.slack.com](https://design-systems.slack.com)
+[news.design.systems](https://news.design.systems)
+[styleguides.io](https://styleguides.io)
+You want your site/product and DS to age like a fine wine, not like a car you're pulling off the lot. 
+
+brad@bradfrost.com | bradfrost.com
